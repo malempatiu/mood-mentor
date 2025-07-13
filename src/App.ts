@@ -1,5 +1,6 @@
 import express from 'express';
 import { Controller } from './types/controller';
+import { ErrorMiddleware } from './middlewares/ErrorMiddleware';
 
 class App {
   private readonly app = express();
@@ -17,6 +18,7 @@ class App {
     this.port = port;
     this.initializeMiddlewares();
     this.initializeControllers();
+    this.initializeErrorMiddleware();
   }
 
   private initializeMiddlewares = () => {
@@ -27,6 +29,10 @@ class App {
     this.controllers.forEach((controller) => {
       this.app.use(this.path, controller.router);
     });
+  };
+
+  private initializeErrorMiddleware = () => {
+    this.app.use(ErrorMiddleware.handler);
   };
 
   public listen = () => {
