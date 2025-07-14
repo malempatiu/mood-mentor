@@ -1,6 +1,6 @@
 import { supabase } from '@/lib/supabase/client';
 import { MoodEntriesRepository } from './MoodEntriesRepository';
-import { MoodEntry } from './types';
+import { MoodEntryDTO } from './types';
 import { DBException } from '@/exceptions/DBException';
 
 jest.mock('@/lib/supabase/client', () => ({
@@ -36,7 +36,7 @@ describe('MoodEntriesRepository', () => {
   });
 
   it('should fetch mood entries for a given user', async () => {
-    const mockData: MoodEntry[] = [
+    const mockData: MoodEntryDTO[] = [
       {
         id: 1,
         UserId: 'user123',

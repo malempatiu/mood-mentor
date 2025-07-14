@@ -19,6 +19,8 @@ module.exports = [
     },
     rules: {
       ...eslintPluginTypescript.configs.recommended.rules,
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": ['error', { argsIgnorePattern: '^_', caughtErrors: 'none'}],
       'prettier/prettier': 'error',
     },
   },

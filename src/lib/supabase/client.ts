@@ -1,8 +1,6 @@
+import { config } from '@/config/default';
 import { createClient } from '@supabase/supabase-js';
 
-const supabase = createClient(
-  process.env.SUPABASE_API_URL as string,
-  process.env.SUPABASE_API_KEY as string,
-);
+const supabase = createClient(config.supabaseUrl, config.supabaseKey);
 
 export { supabase };

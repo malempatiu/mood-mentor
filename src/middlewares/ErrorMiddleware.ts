@@ -4,9 +4,9 @@ import { Request, Response, NextFunction } from 'express';
 export class ErrorMiddleware {
   public static handler = (
     err: HttpException,
-    req: Request,
+    _req: Request,
     res: Response,
-    next: NextFunction,
+    _next: NextFunction,
   ) => {
     console.error(err);
     res.status(err.status || 500).json({
