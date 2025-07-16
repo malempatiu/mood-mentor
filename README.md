@@ -1,6 +1,6 @@
 # Mood Mentor
 
-Mood Mentor is a web service that provides mood summaries based on user mood entries. It uses a combination of Express.js, TypeScript, and Supabase for the backend, with the Mastra library for AI-powered mood analysis.
+Mood Mentor is a web service that provides mood summaries based on user mood entries. It uses a combination of **Express.js**, **TypeScript**, and **Supabase** for the backend, with the **Mastra** library for **AI-powered** mood analysis.
 
 ## Architecture
 
@@ -51,10 +51,10 @@ sequenceDiagram
     MoodSummaryService->>+MoodEntriesRepository: getMoodEntries(userId)
     MoodEntriesRepository-->>-MoodSummaryService: return mood entries
     MoodSummaryService->>+MastraSDK: generate(entries)
-    MastraSDK->>+OpenAI: request summary
-    OpenAI-->>-MastraSDK: return summary
-    MastraSDK-->>-MoodSummaryService: return summary
-    MoodSummaryService-->>-MoodSummaryController: return summary
+    MastraSDK->>+OpenAI: request summary with trend and tips
+    OpenAI-->>-MastraSDK: return summary with trend and tips
+    MastraSDK-->>-MoodSummaryService: return summary with trend and tips
+    MoodSummaryService-->>-MoodSummaryController: return summary with trend and tips
     MoodSummaryController-->>-ExpressServer: send response
     ExpressServer-->>-Client: 200 OK with JSON summary
 ```
@@ -65,7 +65,10 @@ sequenceDiagram
 
 - Node.js
 - npm
-- A Supabase account and project
+- A Supabase account and project 
+  - moodEntries table 
+  - users table
+- OpenAI account
 
 ### Installation
 
