@@ -1,6 +1,6 @@
 # Mood Mentor
 
-Mood Mentor is a web service that provides mood summaries based on user mood entries. It uses a combination of **Express.js**, **TypeScript**, and **Supabase** for the backend, with the **Mastra** library for **AI-powered** mood analysis.
+Mood Mentor is a web service that provides mood summaries based on user mood entries. It uses a combination of **`Express.js`**, **`TypeScript`**, and **`Supabase`** for the backend, with the **`Mastra`** library for **`AI-powered`** mood analysis.
 
 ## Architecture
 
