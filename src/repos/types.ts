@@ -1,13 +1,12 @@
-export type MoodEntry = {
+export type MoodEntryDTO = {
   id: number;
   mood: string;
   feelings: string;
   journalEntry: string;
   sleepHours: number;
-  UserId: string;
   createdAt: string;
 };
 
 export interface MoodEntriesRepositoryI {
-  fetchUserMoodEntries: (userId: string) => Promise<MoodEntry[]>;
+  fetchUserMoodEntries: (userId: string) => Promise<MoodEntryDTO[]>;
 }

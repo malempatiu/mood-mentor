@@ -4,7 +4,7 @@ import { ErrorMiddleware } from './middlewares/ErrorMiddleware';
 
 class App {
   private readonly app = express();
-  private readonly path = '/';
+  private readonly path = '/api';
   private readonly controllers: Controller[];
   private readonly port: number;
   constructor({
@@ -36,7 +36,7 @@ class App {
   };
 
   public listen = () => {
-    this.app.listen(process.env.SERVER_PORT, () => {
+    this.app.listen(this.port, () => {
       console.log(`Server listening on port: ${this.port}`);
     });
   };
