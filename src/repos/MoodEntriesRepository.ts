@@ -9,7 +9,7 @@ class MoodEntriesRepository implements MoodEntriesRepositoryI {
       .select('*')
       .eq('UserId', userId)
       .order('createdAt', { ascending: false })
-      .limit(30);
+      .limit(5);
     if (error) {
       throw new DBException(Number(error.code), error.message);
     }
