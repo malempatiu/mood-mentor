@@ -24,8 +24,12 @@ class MoodSummaryController {
     if (!userId?.trim().length) {
       throw new BadException('User id is missing!');
     }
-    const result = await this.moodSummaryService.getMoodSummaryByUserId(userId);
-    res.status(200).json(result);
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Transfer-Encoding', 'chunked');
+    res.setHeader('Cache-Control', 'no-cache');
+
+    await this.moodSummaryService.getMoodSummaryByUserId(userId, res);
+    res.end();
   };
 }
 
