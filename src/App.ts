@@ -28,6 +28,12 @@ class App {
   };
 
   private initializeControllers = () => {
+    this.app.get('/api', (req, res) => {
+      res.json({
+        message: 'API base route working',
+        availableRoutes: ['/api/mood-summary'],
+      });
+    });
     this.controllers.forEach((controller) => {
       this.app.use(this.path, controller.router);
     });
@@ -38,7 +44,7 @@ class App {
   };
 
   public listen = () => {
-    if (process.env.NODE_ENV !== 'production') {
+    if (process.env.NODE_ENV !== 'production' && process.env.VERCEL !== '1') {
       this.app.listen(this.port, () => {
         console.log(`Server listening on port: ${this.port}`);
       });
