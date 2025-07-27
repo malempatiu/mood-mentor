@@ -51,6 +51,17 @@ jobs:
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
           
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Build for production
+        run: npm run build
+        
+      - name: Copy source files to api directory
+        run: |
+          mkdir -p api
+          cp src/index.ts api/index.js || cp dist/index.js api/index.js
+        
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=${{ github.ref == 'refs/heads/master' && 'production' || 'preview' }} --token=${{ secrets.VERCEL_TOKEN }}
         
