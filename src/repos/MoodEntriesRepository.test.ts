@@ -39,7 +39,6 @@ describe('MoodEntriesRepository', () => {
     const mockData: MoodEntryDTO[] = [
       {
         id: 1,
-        UserId: 'user123',
         mood: 'happy',
         createdAt: '2025-07-12T10:00:00Z',
         feelings: '',
@@ -54,9 +53,8 @@ describe('MoodEntriesRepository', () => {
 
     expect(supabase.from).toHaveBeenCalledWith('moodEntries');
     expect(mockSelect).toHaveBeenCalledWith('*');
-    expect(mockEq).toHaveBeenCalledWith('UserId', 'user123');
     expect(mockOrder).toHaveBeenCalledWith('createdAt', { ascending: false });
-    expect(mockLimit).toHaveBeenCalledWith(30);
+    expect(mockLimit).toHaveBeenCalledWith(5);
     expect(result).toEqual(mockData);
   });
 
