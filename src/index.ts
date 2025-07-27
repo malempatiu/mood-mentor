@@ -4,11 +4,15 @@ import { MoodSummaryController } from './controllers/MoodSummaryController';
 import { MoodEntriesRepository } from './repos/MoodEntriesRepository';
 import { MoodSummaryService } from './services/MoodSummaryService';
 
-new App({
+const appInstance = new App({
   controllers: [
     new MoodSummaryController(
       new MoodSummaryService(new MoodEntriesRepository()),
     ),
   ],
   port: config.port,
-}).listen();
+});
+
+appInstance.listen();
+
+export default appInstance.getApp();
