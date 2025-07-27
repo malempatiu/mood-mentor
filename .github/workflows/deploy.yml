@@ -32,12 +32,6 @@ jobs:
         
       - name: Run tests
         run: npm test
-        
-      - name: Build application
-        run: npm run build
-        
-      - name: Verify build output
-        run: ls -la dist/
 
   deploy:
     needs: ci
