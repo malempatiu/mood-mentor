@@ -39,7 +39,6 @@ describe('MoodEntriesRepository', () => {
     const mockData: MoodEntryDTO[] = [
       {
         id: 1,
-        UserId: 'user123',
         mood: 'happy',
         createdAt: '2025-07-12T10:00:00Z',
         feelings: '',

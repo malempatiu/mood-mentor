@@ -38,9 +38,11 @@ class App {
   };
 
   public listen = () => {
-    this.app.listen(this.port, () => {
-      console.log(`Server listening on port: ${this.port}`);
-    });
+    if (process.env.NODE_ENV !== 'production') {
+      this.app.listen(this.port, () => {
+        console.log(`Server listening on port: ${this.port}`);
+      });
+    }
   };
 }
 
