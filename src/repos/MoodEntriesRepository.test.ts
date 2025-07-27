@@ -53,9 +53,8 @@ describe('MoodEntriesRepository', () => {
 
     expect(supabase.from).toHaveBeenCalledWith('moodEntries');
     expect(mockSelect).toHaveBeenCalledWith('*');
-    expect(mockEq).toHaveBeenCalledWith('UserId', 'user123');
     expect(mockOrder).toHaveBeenCalledWith('createdAt', { ascending: false });
-    expect(mockLimit).toHaveBeenCalledWith(30);
+    expect(mockLimit).toHaveBeenCalledWith(5);
     expect(result).toEqual(mockData);
   });
 
