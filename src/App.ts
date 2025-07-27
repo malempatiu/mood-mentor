@@ -28,7 +28,7 @@ class App {
   };
 
   private initializeControllers = () => {
-    this.app.get('/api', (req, res) => {
+    this.app.get('/api', (_req, res) => {
       res.json({
         message: 'API base route working',
         availableRoutes: ['/api/mood-summary'],
