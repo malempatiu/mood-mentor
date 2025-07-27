@@ -15,4 +15,7 @@ const appInstance = new App({
 
 appInstance.listen();
 
-export default appInstance.getApp();
+const app = appInstance.getApp();
+
+module.exports = app;
+module.exports.default = app;

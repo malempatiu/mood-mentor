@@ -28,6 +28,13 @@ class App {
   };
 
   private initializeControllers = () => {
+    this.app.get('/', (_req, res) => {
+      res.json({
+        message: 'Mood Mentor API is running!',
+        timestamp: new Date().toISOString(),
+        environment: process.env.NODE_ENV || 'development',
+      });
+    });
     this.app.get('/api', (_req, res) => {
       res.json({
         message: 'API base route working',
@@ -44,7 +51,7 @@ class App {
   };
 
   public listen = () => {
-    if (process.env.NODE_ENV !== 'production' && process.env.VERCEL !== '1') {
+    if (process.env.NODE_ENV === 'development') {
       this.app.listen(this.port, () => {
         console.log(`Server listening on port: ${this.port}`);
       });
